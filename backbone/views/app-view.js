@@ -2,11 +2,12 @@ var app = app || {};
 
 (function ($) {
     app.AppView = Backbone.View.extend({
-	el: '#main',
+	el: '.content',
 	events: {
 	    'click .reset': 'resetAll',
+	    'click #add-player': 'createOnEnter',
 	    'keypress #player-name': 'createOnEnter',
-	    'click .destroy': 'clearAll'
+	    'click .destroy': 'clearAll',
 	},
 	initialize: function () {
 	    this.$input = this.$('#player-name');
@@ -22,13 +23,12 @@ var app = app || {};
 	},
 	resetAll: function () {
 	    _(app.Players.models).each(function (player) {
-		player.save({ score: 0 });
+		player.set('score', 0);
 	    });
 	},
 	createOnEnter: function (event) {
-//	    if (event.which !== ENTER_KEY) {
-//		return;
-//	    } else {
+	    if (event.which === ENTER_KEY || event.type === 'click') {
+		console.log('create player event');
 		var p = new app.Player ({
 		    name: this.$input.val().trim(),
 		    score: 0,
