@@ -4,7 +4,7 @@ unoCalcScore = function (input) {
     }
 
     var sum = 0;
-    input.split('').forEach(function (c) {
+    input.toLowerCase().split('').forEach(function (c) {
 	if (+c > 0 && +c <= 9) {
 	    sum += +c;
 	}
