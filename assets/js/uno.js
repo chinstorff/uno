@@ -12,7 +12,7 @@ unoCalcScore = function (input) {
 	    sum += 20;
 	}
 	else if (c === 'w') {
-	    sum += 40;
+	    sum += 50;
 	}
     });
     
