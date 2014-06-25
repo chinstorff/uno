@@ -1,39 +1,47 @@
-<doctype! html>
+
 <head>
-	<meta charset="utf-8">
-	<title>UNO Score Calculator</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  <meta charset="utf-8">
+  <title>UNO Score Calculator</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 </head>
 <body>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+  <script type="text/template" id="item-template">
+   <p><span id="player-stats">Name: </span><%- name %></p>
+   <p><span id="player-stats">Score: </span><%- score %></p>
+   <input id="addScore" placeholder="Add score">
+  </script>
+
+  <div class="content">
+    <row>
+      <div class="col-xs-6">
+	<h1>UNO Score Calculator</h1>
+	<img src="http://www.toysrus.com/graphics/media/trus/Aplusplus/2013/Updates/071013/2265720/UNO%20Original_2265720_01.jpg"/>
 	
-	<script type="text/template" id="item-template">
-		<p><span id="player-stats">Name: </span><%- name %></p>
-		<p><span id="player-stats">Score: </span><%- score %></p>
-		<input id="addScore" placeholder="Add score">
-	</script>
+	<input id="player-name" placeholder="Player Name" autofocus>
+	<button id="add-player">Add Player</button>
+	<div id="footer">
+	  <button class="reset">Reset Scores</button>
+	  <button class="destroy">New Game</button>
+	</div>
+      </div>
+      <div class="col-xs-6">
+	<ul id="player-list"></ul>
+      </div>
+    </row>
+  </div>
 
-	<section id="header">
-		<h1>UNO Score Calculator</h1>
-		<img src="http://www.toysrus.com/graphics/media/trus/Aplusplus/2013/Updates/071013/2265720/UNO%20Original_2265720_01.jpg"/>
-	</section>
-	<section id="main">
-		<label for="name">Enter your name here:</label>
-		<input id="name" placeholder="Player Name" autofocus>
-		<ul id="player-list"></ul>
-		<div id="footer">
-			<button class="reset">Reset Scores</button>
-			<button class="destroy">New Game</button>
-	</section>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
 
-	<script src="assets/js/uno.js"></script>
-	<script src="backbone/models/player.js"></script>
-	<script src="backbone/models/players.js"></script>
-	<script src="backbone/views/app-view.js"></script>
-	<script src="backbone/views/player-view.js"></script>
-	<script src="backbone/router.js"></script>
-	<script src="backbone/app.js"></script>
+      <script src="assets/js/uno.js"></script>
+      <script src="backbone/models/player.js"></script>
+      <script src="backbone/models/players.js"></script>
+      <script src="backbone/views/app-view.js"></script>
+      <script src="backbone/views/player-view.js"></script>
+      <script src="backbone/router.js"></script>
+      <script src="backbone/app.js"></script>
 </body>
 </html>

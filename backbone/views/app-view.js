@@ -5,11 +5,11 @@ var app = app || {};
 	el: '#main',
 	events: {
 	    'click .reset': 'resetAll',
-	    'keypress #name': 'createOnEnter',
+	    'keypress #player-name': 'createOnEnter',
 	    'click .destroy': 'clearAll'
 	},
 	initialize: function () {
-	    this.$input = this.$('#name');
+	    this.$input = this.$('#player-name');
 	    this.listenTo(app.Players, 'add', this.addOne);
 	    this.listenTo(app.Players, 'all', this.render);
 	},
@@ -26,9 +26,9 @@ var app = app || {};
 	    });
 	},
 	createOnEnter: function (event) {
-	    if (event.which !== ENTER_KEY || !this.$input.val().trim()) {
-		return;
-	    } else {
+//	    if (event.which !== ENTER_KEY) {
+//		return;
+//	    } else {
 		var p = new app.Player ({
 		    name: this.$input.val().trim(),
 		    score: 0,
