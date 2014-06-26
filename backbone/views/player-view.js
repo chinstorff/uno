@@ -5,9 +5,11 @@ var app = app || {};
 	tagName: 'li',
 	template: _.template($('#item-template').html()),
 	events: {
-	    'keypress #addScore': 'updateOnEnter'
+	    'keypress #addScore': 'updateOnEnter',
 	},
 	initialize: function () {
+	    this.events['click #destroy-player-'+this.model.id] = 'reset';
+	    this.events['click #destroy-player-'+this.model.id] = 'destroy';
 	    this.listenTo(this.model, 'change', this.render);
 	    this.listenTo(this.model, 'destroy', this.remove);
 	    this.$input = this.$('#addScore').val();
@@ -26,6 +28,13 @@ var app = app || {};
 	    if (event.which === ENTER_KEY) {
 		this.close();
 	    } else { return; }
-	}
+	},
+	reset: function (event) {
+	    this.model.set('score', 0);
+	},
+	destroy: function (event) {
+	    this.remove();
+	    this.render();
+	},
     })
 })($);

@@ -32,6 +32,7 @@ var app = app || {};
 		var p = new app.Player ({
 		    name: this.$input.val().trim(),
 		    score: 0,
+		    id: app.Players.length,
 		});
 		app.Players.add(p);
 		this.$input.val('').focus();
