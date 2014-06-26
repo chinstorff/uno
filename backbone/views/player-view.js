@@ -8,7 +8,7 @@ var app = app || {};
 	    'keypress #addScore': 'updateOnEnter',
 	},
 	initialize: function () {
-	    this.events['click #destroy-player-'+this.model.id] = 'reset';
+	    this.events['click #reset-player-'+this.model.id] = 'reset';
 	    this.events['click #destroy-player-'+this.model.id] = 'destroy';
 	    this.listenTo(this.model, 'change', this.render);
 	    this.listenTo(this.model, 'destroy', this.remove);
